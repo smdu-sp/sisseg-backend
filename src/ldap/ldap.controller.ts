@@ -1,5 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { LdapService } from './ldap.service';
+import { IsPublic } from 'src/auth/decorators/is-public.decorator';
 
 @Controller('ldap')
 export class LdapController {
@@ -10,9 +11,10 @@ export class LdapController {
     return await this.ldapService.usuariosDesativados();
   }
 
+  @IsPublic()
   @Get('inativos')
-  async buscaUsuariosInativos() {
-    return await this.ldapService.buscaUsuariosInativos(30);
+  async buscaUsuariosInativos(@Query('dias') dias: string) {
+    return await this.ldapService.buscaUsuariosInativos(+dias);
   }
   
 }
