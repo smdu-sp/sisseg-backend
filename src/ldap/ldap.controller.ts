@@ -5,8 +5,14 @@ import { LdapService } from './ldap.service';
 export class LdapController {
   constructor(private readonly ldapService: LdapService) {}
 
-  @Get('users')
-  async getUsers() {
-    return await this.ldapService.getUsers();
+  @Get('desativados')
+  async usuariosDesativados() {
+    return await this.ldapService.usuariosDesativados();
   }
+
+  @Get('inativos')
+  async buscaUsuariosInativos() {
+    return await this.ldapService.buscaUsuariosInativos(30);
+  }
+  
 }
