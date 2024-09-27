@@ -10,6 +10,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { Prisma2Module } from './prisma2/prisma2.module';
 import { LdapService } from './ldap/ldap.service';
 import { LdapModule } from './ldap/ldap.module';
+import { ExoneradosModule } from './exonerados/exonerados.module';
 
 @Global()
 @Module({
@@ -19,6 +20,7 @@ import { LdapModule } from './ldap/ldap.module';
     PrismaModule,
     Prisma2Module,
     LdapModule,
+    ExoneradosModule,
   ],
   controllers: [AppController],
   providers: [
